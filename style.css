@@ -1,0 +1,216 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --wine: #6e1835;
+    --rose: #c47a89;
+    --gold: #d8b779;
+    --cream: #f8ead8;
+    --dark: #10090e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 30%, #351321 0%, transparent 55%),
+        linear-gradient(145deg, #10090e, #1d0c16 55%, #090609);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    padding: 55px 22px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen.active {
+    display: flex;
+    animation: screenReveal 1s ease both;
+}
+
+@keyframes screenReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.05;
+    margin: 15px 0;
+}
+
+.highlight {
+    display: block;
+    color: var(--gold);
+    font-style: italic;
+}
+
+.small-heading {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.welcome-content,
+.final-content {
+    max-width: 720px;
+    animation: contentReveal 1.2s ease;
+}
+
+@keyframes contentReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-message,
+.section-heading p:not(.small-heading) {
+    color: #c9b4ba;
+    font-size: 14px;
+    line-height: 2;
+    max-width: 520px;
+    margin: 15px auto;
+    font-weight: 300;
+}
+
+.section-heading {
+    margin-bottom: 25px;
+    z-index: 2;
+}
+
+.primary-button {
+    display: inline-block;
+    margin: 25px 8px 0;
+    padding: 15px 34px;
+    border: 1px solid var(--gold);
+    border-radius: 3px;
+    background: linear-gradient(120deg, #8b2948, #55152f);
+    color: #fff4e6;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .35s ease;
+    box-shadow: 0 8px 30px #0005;
+}
+
+.primary-button:hover {
+    background: linear-gradient(120deg, #bd526f, #7c2443);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px #0008;
+}
+
+.primary-button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none !important;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+/* Background particles */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    top: -20px;
+    width: 6px;
+    height: 12px;
+    background: var(--gold);
+    animation: confettiFall 5s linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(700deg);
+        opacity: 0;
+    }
+}
+
+/* Final message */
+
+.final-message {
+    max-width: 550px;
+    padding: 35px;
+    margin: 25px auto;
+    border-top: 1px solid #d8b77955;
+    border-bottom: 1px solid #d8b77955;
+    color: #ddcbd0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+#signature {
+    color: var(--gold);
+    font-size: 27px;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+@media(max-width: 600px) {
+    .screen {
+        padding: 40px 16px;
+    }
+
+    .small-heading {
+        letter-spacing: 3px;
+    }
+
+    .final-message {
+        padding: 20px 10px;
+        font-size: 19px;
+    }
+}
