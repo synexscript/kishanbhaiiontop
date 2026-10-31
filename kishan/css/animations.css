@@ -1,0 +1,99 @@
+
+/* Soft floating lights */
+
+#particles::before,
+#particles::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #a83b5b18;
+    filter: blur(75px);
+    animation: ambientGlow 8s ease-in-out infinite alternate;
+}
+
+#particles::before {
+    top: 10%;
+    left: -80px;
+}
+
+#particles::after {
+    bottom: 5%;
+    right: -80px;
+    animation-delay: 3s;
+}
+
+@keyframes ambientGlow {
+    from {
+        transform: scale(.8);
+        opacity: .4;
+    }
+    to {
+        transform: scale(1.4);
+        opacity: .9;
+    }
+}
+
+/* Gift sparkle */
+
+.gift-box.open .gift-ring.show {
+    animation: ringEntrance 1.2s ease both;
+}
+
+@keyframes ringEntrance {
+    0% {
+        filter: brightness(.5);
+    }
+    50% {
+        filter: brightness(1.5);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+/* Bouquet entrance */
+
+.bouquet-scene.revealed {
+    animation: bouquetEntrance 1s ease;
+}
+
+@keyframes bouquetEntrance {
+    0% {
+        transform: translateY(25px) scale(.9);
+        opacity: .5;
+    }
+    100% {
+        transform: translateY(0) scale(1.06);
+        opacity: 1;
+    }
+}
+
+/* Final message */
+
+.final-content {
+    animation: finalReveal 1.5s ease both;
+}
+
+@keyframes finalReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}

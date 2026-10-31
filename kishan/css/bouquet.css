@@ -1,0 +1,435 @@
+
+/* =========================================
+   PREMIUM RED ROSE BOUQUET
+========================================= */
+
+.bouquet-scene {
+    position: relative;
+    width: min(540px, 94vw);
+    height: 480px;
+    margin: 15px auto 25px;
+    isolation: isolate;
+    transform: translateY(35px) scale(.92);
+    opacity: .25;
+    transition: transform 1.3s cubic-bezier(.2,.8,.2,1),
+                opacity 1s ease;
+}
+
+.bouquet-scene.revealed {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Soft shadow beneath bouquet */
+
+.bouquet-scene::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 25px;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    filter: blur(22px);
+    opacity: .55;
+    z-index: -1;
+}
+
+/* =========================================
+   FLOWER STEMS
+========================================= */
+
+.bouquet-stems {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    bottom: 90px;
+    left: 0;
+    z-index: 1;
+}
+
+.stem {
+    position: absolute;
+    width: 5px;
+    height: 230px;
+    left: 50%;
+    bottom: 0;
+    transform-origin: bottom center;
+    border-radius: 100%;
+    background: linear-gradient(
+        90deg,
+        #183b22,
+        #5d9147 45%,
+        #24472b
+    );
+    box-shadow: 1px 0 3px #101e12;
+}
+
+.stem-1 { transform: rotate(-27deg); }
+.stem-2 { transform: rotate(-13deg); }
+.stem-3 { transform: rotate(0deg); }
+.stem-4 { transform: rotate(13deg); }
+.stem-5 { transform: rotate(27deg); }
+
+/* =========================================
+   NATURAL LEAVES
+========================================= */
+
+.bouquet-leaves {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+.leaf {
+    position: absolute;
+    width: 68px;
+    height: 29px;
+    border-radius: 100% 0 100% 0;
+    background: linear-gradient(
+        145deg,
+        #86a95b,
+        #315e32 48%,
+        #142d1c
+    );
+    box-shadow: inset 2px 2px 5px #a3b77b55,
+                2px 4px 7px #0008;
+}
+
+.leaf::after {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 1px;
+    background: #c0d18b88;
+    left: 7%;
+    top: 52%;
+    transform: rotate(-17deg);
+}
+
+.leaf-1 {
+    left: 20%;
+    top: 57%;
+    transform: rotate(20deg);
+}
+
+.leaf-2 {
+    left: 32%;
+    top: 68%;
+    transform: rotate(165deg);
+}
+
+.leaf-3 {
+    right: 17%;
+    top: 57%;
+    transform: rotate(80deg);
+}
+
+.leaf-4 {
+    right: 29%;
+    top: 69%;
+    transform: rotate(190deg);
+}
+
+.leaf-5 {
+    left: 44%;
+    top: 73%;
+    transform: rotate(30deg);
+}
+
+/* =========================================
+   ROSE HEADS
+========================================= */
+
+.rose {
+    position: absolute;
+    width: 132px;
+    height: 132px;
+    z-index: 5;
+    filter: drop-shadow(0 9px 10px #0008);
+    transform: scale(.05);
+    opacity: 0;
+    transition: transform 1s cubic-bezier(.17,.89,.32,1.35),
+                opacity .8s ease;
+}
+
+.bouquet-scene.revealed .rose {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.rose-1 {
+    left: 9%;
+    top: 25%;
+    transform-origin: center;
+    transition-delay: .15s;
+}
+
+.rose-2 {
+    left: 29%;
+    top: 8%;
+    transition-delay: .3s;
+}
+
+.rose-3 {
+    left: 40%;
+    top: 2%;
+    z-index: 7;
+    transition-delay: .45s;
+}
+
+.rose-4 {
+    right: 9%;
+    top: 25%;
+    transition-delay: .6s;
+}
+
+.rose-5 {
+    left: 29%;
+    top: 35%;
+    z-index: 8;
+    transition-delay: .75s;
+}
+
+/* Individual rose petals */
+
+.petal {
+    position: absolute;
+    width: 68px;
+    height: 91px;
+    left: 32px;
+    top: 19px;
+    border-radius: 52% 48% 43% 57% / 57% 57% 43% 43%;
+    transform-origin: 50% 75%;
+    background:
+        radial-gradient(ellipse at 35% 25%,
+            #ff7775 0%,
+            #d91d35 35%,
+            #8c061b 75%,
+            #3e0612 100%);
+    box-shadow:
+        inset 4px 5px 9px #ffaaa055,
+        inset -5px -8px 12px #35000c99,
+        1px 3px 5px #24000888;
+}
+
+/* Outer petal layer */
+
+.p1 {
+    transform: rotate(0deg) translateY(-18px);
+    z-index: 1;
+}
+
+.p2 {
+    transform: rotate(72deg) translateY(-18px);
+    z-index: 2;
+}
+
+.p3 {
+    transform: rotate(144deg) translateY(-18px);
+    z-index: 3;
+}
+
+.p4 {
+    transform: rotate(216deg) translateY(-18px);
+    z-index: 4;
+}
+
+.p5 {
+    transform: rotate(288deg) translateY(-18px);
+    z-index: 5;
+}
+
+/* Rose centre */
+
+.rose-center {
+    position: absolute;
+    width: 49px;
+    height: 49px;
+    left: 41px;
+    top: 42px;
+    z-index: 10;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 40% 35%,
+            #ff7771,
+            #d51b35 38%,
+            #79091c 72%,
+            #39000b);
+    box-shadow:
+        inset 3px 4px 8px #ffaaa055,
+        inset -4px -5px 8px #30000b99;
+}
+
+/* Spiral detail inside rose */
+
+.rose-center::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 5px solid #a70c28;
+    border-left-color: #f45a62;
+    border-bottom-color: #650518;
+    border-radius: 50%;
+    transform: rotate(-30deg);
+}
+
+.rose-center::after {
+    content: "";
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 16px;
+    top: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%,
+        #ffaaa0,
+        #c81732 65%,
+        #650619);
+}
+
+/* =========================================
+   PREMIUM FLOWER WRAPPING
+========================================= */
+
+.bouquet-wrap {
+    position: absolute;
+    width: 290px;
+    height: 245px;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
+.bouquet-paper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 230px;
+    clip-path: polygon(5% 0, 95% 0, 72% 100%, 28% 100%);
+    border-radius: 10px;
+}
+
+.paper-back {
+    background: linear-gradient(
+        110deg,
+        #161316,
+        #373037 45%,
+        #0c0b0d
+    );
+    transform: scale(1.08) rotate(-5deg);
+}
+
+.paper-front {
+    background: linear-gradient(
+        100deg,
+        #080708,
+        #252025 42%,
+        #100d10 75%,
+        #050505
+    );
+    clip-path: polygon(0 0, 100% 0, 69% 100%, 31% 100%);
+    box-shadow: inset 0 0 25px #ffffff12;
+}
+
+/* Gold border detail */
+
+.paper-front::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid #c6a15c99;
+    clip-path: polygon(0 0, 100% 0, 69% 100%, 31% 100%);
+}
+
+/* Ribbon */
+
+.bouquet-ribbon {
+    position: absolute;
+    width: 170px;
+    height: 24px;
+    left: 60px;
+    bottom: 66px;
+    border-radius: 4px;
+    background: linear-gradient(
+        180deg,
+        #f4d78b,
+        #b58a3c 45%,
+        #79501c
+    );
+    box-shadow: 0 5px 12px #0009;
+    z-index: 5;
+}
+
+.ribbon-knot {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 128px;
+    bottom: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%,
+        #fff0b8,
+        #c59b50 45%,
+        #72501e);
+    z-index: 6;
+    box-shadow: 0 3px 8px #0009;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+    .bouquet-scene {
+        width: 100%;
+        height: 420px;
+        transform: translateY(35px) scale(.85);
+    }
+
+    .rose {
+        width: 105px;
+        height: 105px;
+    }
+
+    .petal {
+        width: 56px;
+        height: 75px;
+        left: 25px;
+        top: 15px;
+    }
+
+    .rose-center {
+        width: 40px;
+        height: 40px;
+        left: 32px;
+        top: 33px;
+    }
+
+    .rose-center::after {
+        left: 12px;
+        top: 12px;
+    }
+
+    .rose-1 { left: 3%; top: 25%; }
+    .rose-2 { left: 25%; top: 8%; }
+    .rose-3 { left: 40%; top: 3%; }
+    .rose-4 { right: 3%; top: 25%; }
+    .rose-5 { left: 28%; top: 34%; }
+
+    .bouquet-wrap {
+        width: 250px;
+        height: 215px;
+    }
+
+    .bouquet-ribbon {
+        left: 40px;
+        width: 170px;
+    }
+
+    .ribbon-knot {
+        left: 108px;
+    }
+}

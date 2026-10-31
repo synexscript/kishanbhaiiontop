@@ -1,0 +1,258 @@
+
+/* GIFT SCENE */
+
+.gift-scene {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: visible;
+    perspective: 900px;
+    margin: 20px auto;
+}
+
+.gift-box {
+    position: relative;
+    width: 240px;
+    height: 210px;
+    margin: 0 auto;
+    overflow: visible;
+    transform-style: preserve-3d;
+}
+
+/* BOX BODY */
+
+.gift-body {
+    position: absolute;
+    width: 210px;
+    height: 135px;
+    left: 15px;
+    bottom: 0;
+    z-index: 2;
+    border-radius: 4px 4px 9px 9px;
+    background: linear-gradient(
+        110deg,
+        #650e27,
+        #a51d42 45%,
+        #570b21
+    );
+    box-shadow:
+        inset 8px 0 15px #ffffff12,
+        inset -8px 0 15px #0005,
+        0 18px 30px #0007;
+}
+
+/* BOX RIBBONS */
+
+.gift-ribbon {
+    position: absolute;
+    background: linear-gradient(
+        90deg,
+        #c49a50,
+        #ffe6a0,
+        #a9782f
+    );
+    box-shadow: 0 0 8px #e5c47755;
+}
+
+.gift-ribbon.vertical {
+    width: 34px;
+    height: 100%;
+    left: 88px;
+    top: 0;
+}
+
+.gift-ribbon.horizontal {
+    height: 25px;
+    width: 100%;
+    left: 0;
+    top: 48px;
+}
+
+/* BOX LID */
+
+.gift-lid {
+    position: absolute;
+    width: 240px;
+    height: 45px;
+    left: 0;
+    bottom: 125px;
+    z-index: 5;
+    border-radius: 5px;
+    background: linear-gradient(
+        110deg,
+        #8b1636,
+        #c32c53 50%,
+        #76102d
+    );
+    box-shadow:
+        inset 0 5px 8px #ffffff18,
+        0 8px 15px #0006;
+    transform-origin: 12% 90%;
+    transition: transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.lid-ribbon {
+    position: absolute;
+    width: 34px;
+    height: 100%;
+    left: 103px;
+    top: 0;
+    background: linear-gradient(
+        90deg,
+        #c49a50,
+        #ffe6a0,
+        #a9782f
+    );
+}
+
+/* OPENING LID */
+
+.gift-box.open .gift-lid {
+    transform: translate(-45px, -95px) rotate(-35deg);
+}
+
+/* RING */
+
+.gift-ring {
+    position: absolute;
+    width: 100px;
+    height: 115px;
+    left: 50%;
+    bottom: 75px;
+    z-index: 4;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translate(-50%, 65px) scale(.35);
+    transform-origin: center bottom;
+
+    transition:
+        transform 1.15s cubic-bezier(.17,.89,.32,1.35),
+        opacity .6s ease,
+        visibility .6s ease;
+}
+
+/* RING EMERGES */
+
+.gift-ring.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -85px) scale(1);
+}
+
+/* GOLD RING BAND */
+
+.ring-band {
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    left: 21px;
+    top: 45px;
+    border: 9px solid #d7aa48;
+    border-radius: 50%;
+    transform: rotate(-15deg);
+    background: transparent;
+    box-shadow:
+        inset 2px 2px 5px #fff4b5,
+        2px 3px 8px #0008;
+}
+
+.ring-band::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border: 2px solid #fff0a6;
+    border-radius: 50%;
+    opacity: .65;
+}
+
+/* STONE SETTING */
+
+.ring-setting {
+    position: absolute;
+    width: 34px;
+    height: 24px;
+    left: 33px;
+    top: 34px;
+    border-radius: 50% 50% 35% 35%;
+    background: linear-gradient(
+        145deg,
+        #fff0ad,
+        #c38a28,
+        #ffe6a0
+    );
+    box-shadow: 0 0 9px #f5d77b88;
+}
+
+/* DIAMOND */
+
+.ring-stone {
+    position: absolute;
+    width: 27px;
+    height: 29px;
+    left: 36px;
+    top: 10px;
+    z-index: 3;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #bcecff 35%,
+        #ffffff 55%,
+        #7ca8c5
+    );
+    clip-path: polygon(
+        25% 0,
+        75% 0,
+        100% 35%,
+        50% 100%,
+        0 35%
+    );
+    filter: drop-shadow(0 0 7px #c8efff);
+}
+
+/* DIAMOND LIGHT */
+
+.ring-glint {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    left: 43px;
+    top: 13px;
+    z-index: 4;
+    background: white;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0;
+}
+
+.gift-ring.show .ring-glint {
+    animation: ringShine 1.5s ease-in-out 1s infinite;
+}
+
+@keyframes ringShine {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .gift-scene {
+        height: 290px;
+    }
+
+    .gift-box {
+        transform: scale(.85);
+        transform-origin: bottom center;
+    }
+}

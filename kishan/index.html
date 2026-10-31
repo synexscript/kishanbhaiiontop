@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise For You</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gift.css">
+    <link rel="stylesheet" href="css/bouquet.css">
+    <link rel="stylesheet" href="css/diary.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<!-- SCREEN 1: WELCOME -->
+<section class="screen active" id="screen-1">
+    <div class="welcome-content">
+        <p class="small-heading">A LITTLE SOMETHING FOR YOU</p>
+
+        <h1 class="main-title">
+            Happy Birthday
+            <span class="highlight">Beautiful</span>
+        </h1>
+
+        <p class="welcome-message">
+            Today is not just another day.
+            It's a day to celebrate someone truly special.
+        </p>
+
+        <button class="primary-button" onclick="goTo(2)">
+            Begin Your Surprise
+        </button>
+    </div>
+</section>
+
+
+<!-- SCREEN 2: GIFT AND RING -->
+<section class="screen" id="screen-2">
+
+    <div class="section-heading">
+        <p class="small-heading">A GIFT FROM MY HEART</p>
+        <h1>A Little Surprise</h1>
+        <p id="giftInstruction">
+            There's something special waiting inside.
+        </p>
+    </div>
+
+    <div class="gift-scene">
+        <div class="gift-box" id="giftBox">
+
+            <div class="gift-body">
+                <div class="gift-ribbon vertical"></div>
+                <div class="gift-ribbon horizontal"></div>
+            </div>
+
+            <div class="gift-lid" id="giftLid">
+                <div class="lid-ribbon"></div>
+            </div>
+
+            <div class="gift-ring" id="giftRing">
+                <div class="ring-band"></div>
+                <div class="ring-setting"></div>
+                <div class="ring-stone"></div>
+                <div class="ring-glint"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="openGiftButton" class="primary-button" onclick="openGift()">
+        Open Your Gift
+    </button>
+
+    <button id="giftNextButton" class="primary-button hidden" onclick="goTo(3)">
+        Continue
+    </button>
+
+</section>
+
+
+<!-- SCREEN 3: BOUQUET -->
+<section class="screen" id="screen-3">
+
+    <div class="section-heading">
+        <p class="small-heading">JUST FOR YOU</p>
+        <h1>Flowers For You</h1>
+        <p id="flowerInstruction">
+            A beautiful bouquet, made with love.
+        </p>
+    </div>
+
+    <div class="bouquet-scene" id="bouquetScene">
+
+        <div class="bouquet-wrap">
+            <div class="bouquet-paper paper-back"></div>
+            <div class="bouquet-paper paper-front"></div>
+            <div class="bouquet-ribbon"></div>
+            <div class="ribbon-knot"></div>
+        </div>
+
+        <div class="bouquet-stems">
+            <div class="stem stem-1"></div>
+            <div class="stem stem-2"></div>
+            <div class="stem stem-3"></div>
+            <div class="stem stem-4"></div>
+            <div class="stem stem-5"></div>
+        </div>
+
+        <div class="bouquet-leaves">
+            <div class="leaf leaf-1"></div>
+            <div class="leaf leaf-2"></div>
+            <div class="leaf leaf-3"></div>
+            <div class="leaf leaf-4"></div>
+            <div class="leaf leaf-5"></div>
+        </div>
+
+        <div class="rose rose-1">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            <div class="rose-center"></div>
+        </div>
+
+        <div class="rose rose-2">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            <div class="rose-center"></div>
+        </div>
+
+        <div class="rose rose-3">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            <div class="rose-center"></div>
+        </div>
+
+        <div class="rose rose-4">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            <div class="rose-center"></div>
+        </div>
+
+        <div class="rose rose-5">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            <div class="rose-center"></div>
+        </div>
+
+    </div>
+
+    <button id="flowerButton" class="primary-button" onclick="revealRose()">
+        Reveal Your Flowers
+    </button>
+
+    <button id="flowerNextButton" class="primary-button hidden" onclick="goTo(4)">
+        Open Your Diary
+    </button>
+
+</section>
+
+
+<!-- SCREEN 4: DIARY -->
+<section class="screen" id="screen-4">
+
+    <div class="section-heading">
+        <p class="small-heading">OUR LITTLE WORLD</p>
+        <h1>A Book Of Memories</h1>
+        <p>Some moments deserve to stay forever.</p>
+    </div>
+
+    <div class="diary-container">
+        <div class="diary-cover">
+
+            <div class="diary-cover-inner">
+
+                <div class="diary-paper left">
+                    <div id="diaryText">
+                        <h2>Our Memories</h2>
+                        <p>
+                            Every beautiful story has its own
+                            special moments.
+
+                            Turn the pages to discover ours.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="diary-spine"></div>
+
+                <div class="diary-paper right">
+                    <div class="diary-photo-frame">
+                        <img id="diaryImage"
+                             src="assets/images/photo1.jpg"
+                             alt="Our special memory">
+                    </div>
+
+                    <p class="diary-caption" id="diaryCaption">
+                        A memory worth keeping forever.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="diary-controls">
+
+            <button id="previousPage" onclick="changePage(-1)">
+                Previous
+            </button>
+
+            <span id="pageCount">1 / 4</span>
+
+            <button id="nextPage" onclick="changePage(1)">
+                Next
+            </button>
+
+            <button id="finishDiaryButton" class="hidden" onclick="goTo(5)">
+                Finish
+            </button>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- SCREEN 5: FINAL BIRTHDAY MESSAGE -->
+<section class="screen" id="screen-5">
+
+    <div class="final-content">
+
+        <p class="small-heading">ONE LAST THING</p>
+
+        <h1 class="final-title">
+            You Are Truly
+            <span class="highlight">Special</span>
+        </h1>
+
+        <div class="final-message">
+
+            <div id="loveNote">
+
+                <p>
+                    Ninigeee nan birthaday wish gu modhluuuuu eanoo ondh helbek kaneeee
+                </p>
+
+                <p>
+                    I Misssss youuuuu sooo muchhhhh ammmmmmmmmuuuu 🫂🫂🫂🫂🥹
+                </p>
+
+                <p>
+                    At this situation nan nin pakkaaaaa irbekuuuu anthaaaaa jasthiii aseeee pattideee Bangara
+                </p>
+
+                <p>
+                    Nin pakka idhuu<br>
+                    Nin nagu nodkondu<br>
+                    Ninge birthday celebrate madi<br>
+                    E dina naa life alli marthogdhe iro tara madtiddare<br>
+                    Bittt illeee pakkaa idhruu en madak agthilllaa ammmmmu<br>
+                    Sryyy kaneee 🫂
+                </p>
+
+                <p>
+                    But nam situation agillaa 🫂
+                </p>
+
+                <p>
+                    Alsooo kaneeeeee chinthee padbedaaaa<br>
+                    Innu 10 years bekadru nan ingeeeeee<br>
+                    Ningoskara<br>
+                    Loyal ag kaiteeeeniiii ammmmmmmmuuuu 🫂🫂🫂🫂😘💞🌍
+                </p>
+
+                <p>
+                    Loveee uu so muchhhhh ammmmu. 😘🫂💞🌍
+                </p>
+
+                <p>
+                    Ammmmmmmuuu...!!!!!!!
+                </p>
+
+                <p>
+                    Wishhh youuuuu happpiesttttt birthaday ammmmmuuu 🫂😘💞🌍
+                </p>
+
+                <p>
+                    Yavaguuuuuu ingeeeee iruuuuuu 🫂<br>
+                    Nin jotheee yavagluuu nan irtenii<br>
+                    Eanee adruu ninnnaa bittu ogallaa ammmmuu<br>
+                    Nan Ning madiro ane ellaa ulskoteniii kandhaaa 🫂
+                </p>
+
+                <p>
+                    Distance namnaa doora madhruu nuuu<br>
+                    Nam mansuu yavthuuu bere bere agallaaa kaneeee 💞<br>
+                    Nan ninnnaaa bittogallaa<br>
+                    Yavdhee eane situation alli nu ninna bittogallaa 🫂<br>
+                    Ninna maguuu tara nodkoten kaneeee 😘<br>
+                    Nan prapanchaaaa nineeee kaneeeeee 🌍
+                </p>
+
+                <p>
+                    Lovvvv youuh sohh muchhhh kandhaaa 😘🫂🌍💞
+                </p>
+
+            </div>
+
+        </div>
+
+        <h2 id="signature">Forever yours... 🫂💞</h2>
+
+        <button class="primary-button" onclick="replay()">
+            Experience Again
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+/* NAVIGATION */
+
+function goTo(pageNumber) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    const page = document.getElementById("screen-" + pageNumber);
+
+    if (!page) return;
+
+    page.classList.add("active");
+
+    if (pageNumber === 4) {
+        resetDiary();
+    }
+
+    if (pageNumber === 5) {
+        showFinalMessage();
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* GIFT BOX AND RING */
+
+function openGift() {
+
+    const box = document.getElementById("giftBox");
+    const ring = document.getElementById("giftRing");
+    const button = document.getElementById("openGiftButton");
+    const next = document.getElementById("giftNextButton");
+    const instruction = document.getElementById("giftInstruction");
+
+    if (button.disabled) return;
+
+    button.disabled = true;
+
+    box.classList.add("open");
+
+    instruction.textContent = "A little surprise, made with love...";
+
+    setTimeout(() => {
+        ring.classList.add("show");
+    }, 900);
+
+    setTimeout(() => {
+        next.classList.remove("hidden");
+        instruction.textContent = "A little gift with lots of love.";
+    }, 2300);
+}
+
+
+function resetGift() {
+
+    document.getElementById("giftBox").classList.remove("open");
+    document.getElementById("giftRing").classList.remove("show");
+
+    document.getElementById("openGiftButton").disabled = false;
+
+    document.getElementById("giftNextButton").classList.add("hidden");
+
+    document.getElementById("giftInstruction").textContent =
+        "There's something special waiting inside.";
+}
+
+
+/* BOUQUET */
+
+function revealRose() {
+
+    const bouquet = document.getElementById("bouquetScene");
+    const button = document.getElementById("flowerButton");
+    const next = document.getElementById("flowerNextButton");
+    const instruction = document.getElementById("flowerInstruction");
+
+    if (button.disabled) return;
+
+    button.disabled = true;
+
+    bouquet.classList.add("revealed");
+
+    instruction.textContent =
+        "Every flower is a little reminder of you.";
+
+    setTimeout(() => {
+        next.classList.remove("hidden");
+    }, 1200);
+}
+
+
+function resetBouquet() {
+
+    document.getElementById("bouquetScene").classList.remove("revealed");
+
+    document.getElementById("flowerButton").disabled = false;
+
+    document.getElementById("flowerNextButton").classList.add("hidden");
+
+    document.getElementById("flowerInstruction").textContent =
+        "A beautiful bouquet, made with love.";
+}
+
+
+/* DIARY CONTENT */
+
+const diaryPages = [
+
+    {
+        title: "The Beginning",
+        text: "Every beautiful story starts somewhere.\n\nSome people enter our lives and make ordinary moments feel special.\n\nI'm glad our paths crossed.",
+        image: "assets/images/photo1.jpg",
+        caption: "The beginning of a beautiful memory."
+    },
+
+    {
+        title: "Beautiful Moments",
+        text: "It's the little things that make memories unforgettable.\n\nThe laughter, the conversations and the moments we never planned.\n\nThose are the memories I treasure.",
+        image: "assets/images/photo2.jpg",
+        caption: "A moment worth remembering."
+    },
+
+    {
+        title: "Always Smile",
+        text: "I hope life always gives you reasons to smile.\n\nYou deserve happiness, peace and all the beautiful things this world has to offer.",
+        image: "assets/images/photo3.jpg",
+        caption: "Keep smiling, always."
+    },
+
+    {
+        title: "A Special Day",
+        text: "Today is your day.\n\nMay this new chapter bring you endless happiness, exciting adventures and dreams coming true.\n\nHappy Birthday!",
+        image: "assets/images/photo4.jpg",
+        caption: "Here's to many more memories."
+    }
+
+];
+
+
+let currentDiaryPage = 0;
+
+
+function renderPage() {
+
+    const data = diaryPages[currentDiaryPage];
+
+    document.getElementById("diaryText").innerHTML =
+        "<h2>" + escapeHTML(data.title) + "</h2><p>" +
+        escapeHTML(data.text) + "</p>";
+
+    const image = document.getElementById("diaryImage");
+
+    image.onerror = function() {
+        this.alt = "Photo not found: " + data.image;
+    };
+
+    image.src = data.image;
+    image.alt = data.caption;
+
+    document.getElementById("diaryCaption").textContent =
+        data.caption;
+
+    document.getElementById("pageCount").textContent =
+        (currentDiaryPage + 1) + " / " + diaryPages.length;
+
+    document.getElementById("previousPage").disabled =
+        currentDiaryPage === 0;
+
+    document.getElementById("nextPage").classList.toggle(
+        "hidden",
+        currentDiaryPage === diaryPages.length - 1
+    );
+
+    document.getElementById("finishDiaryButton").classList.toggle(
+        "hidden",
+        currentDiaryPage !== diaryPages.length - 1
+    );
+
+}
+
+
+function escapeHTML(value) {
+
+    return value.replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    })[char]);
+
+}
+
+
+function changePage(direction) {
+
+    const newPage = currentDiaryPage + direction;
+
+    if (newPage < 0 || newPage >= diaryPages.length) return;
+
+    currentDiaryPage = newPage;
+
+    renderPage();
+
+}
+
+
+function resetDiary() {
+
+    currentDiaryPage = 0;
+
+    renderPage();
+
+}
+
+
+/* FINAL MESSAGE AND CONFETTI */
+
+function showFinalMessage() {
+
+    const container = document.getElementById("particles");
+
+    for (let i = 0; i < 35; i++) {
+
+        const particle = document.createElement("span");
+
+        particle.className = "confetti-piece";
+
+        particle.style.left = Math.random() * 100 + "vw";
+
+        particle.style.animationDelay = Math.random() * 3 + "s";
+
+        container.appendChild(particle);
+
+        setTimeout(() => particle.remove(), 6000);
+
+    }
+
+}
+
+
+/* REPLAY */
+
+function replay() {
+
+    resetGift();
+
+    resetBouquet();
+
+    resetDiary();
+
+    goTo(1);
+
+}
+
+
+/* INITIALIZATION */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    renderPage();
+
+    console.log("Birthday surprise website is ready!");
+
+});
+
+</script>
+
+</body>
+</html>
